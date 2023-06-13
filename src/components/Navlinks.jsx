@@ -6,20 +6,19 @@ const NavLinks = () => {
 
   return (
     <div className="nav-links">
-      <ul className="nav-links-center">
-        {sublinks.map((sub) => {
-          const { pageId, page } = sub;
-          return (
-            <li
-              key={pageId}
-              className="nav-link"
-              onMouseEnter={() => setPageId(pageId)}
-            >
-              {page}
-            </li>
-          );
-        })}
-      </ul>
+      {sublinks.map((sub) => {
+        const { pageId, page } = sub;
+        return (
+          <button
+            type="button"
+            key={pageId}
+            className="nav-link"
+            onMouseEnter={() => setPageId(pageId)}
+          >
+            {page}
+          </button>
+        );
+      })}
     </div>
   );
 };

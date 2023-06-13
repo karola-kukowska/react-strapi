@@ -5,9 +5,8 @@ const Submenu = () => {
   const { pageId, setPageId } = useGlobalContext();
   let currentPage = null;
   if (pageId) {
-    currentPage = sublinks.filter((page) => page.pageId === pageId);
+    currentPage = sublinks.find((page) => page.pageId === pageId);
   }
-  // console.log(currentPage ? currentPage : "nopage");
 
   return (
     <section
@@ -15,10 +14,16 @@ const Submenu = () => {
       onMouseLeave={() => setPageId(null)}
     >
       <div>
-        {pageId && <h5>{currentPage[0].page}</h5>}
-        <ul className="submenu-links">
+        <h5>{currentPage?.page}</h5>
+        <ul
+          className="submenu-links"
+          style={{
+            gridTemplateColumns:
+              currentPage?.links?.length > 3 ? "1fr 1fr" : "1fr",
+          }}
+        >
           {pageId &&
-            currentPage[0].links.map((arr) => {
+            currentPage.links.map((arr) => {
               const { id, url, label, icon } = arr;
               return (
                 <li key={id}>

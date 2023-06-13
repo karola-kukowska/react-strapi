@@ -1,5 +1,5 @@
 import { useGlobalContext } from "../context";
-import { AiOutlineCloseCircle, AiOutlineClose } from "react-icons/ai";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 import sublinks from "../data";
 
 const Sidebar = () => {
@@ -11,31 +11,28 @@ const Sidebar = () => {
         <button type="button" className="close-btn" onClick={toggleSidebar}>
           <AiOutlineCloseCircle />
         </button>
-        <article>
-          <div className="sidebar-sublinks">
-            {sublinks.map((sub) => {
-              const { pageId, page, links } = sub;
-
-              return (
-                <ul key={pageId}>
-                  {" "}
-                  <h4>{page}</h4>
+        <div className="sidebar-links">
+          {sublinks.map((sub) => {
+            const { pageId, page, links } = sub;
+            return (
+              <article key={pageId}>
+                {" "}
+                <h4>{page}</h4>
+                <div className="sidebar-sublinks">
                   {links.map((item) => {
                     const { label, icon, url, id } = item;
                     return (
-                      <li key={id}>
-                        <a href={url}>
-                          {icon}
-                          {label}
-                        </a>
-                      </li>
+                      <a key={id} href={url}>
+                        {icon}
+                        {label}
+                      </a>
                     );
                   })}
-                </ul>
-              );
-            })}
-          </div>
-        </article>
+                </div>
+              </article>
+            );
+          })}
+        </div>
       </div>
     </aside>
   );

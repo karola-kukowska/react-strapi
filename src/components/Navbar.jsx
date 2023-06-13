@@ -3,7 +3,7 @@ import { FaBars } from "react-icons/fa";
 import NavLinks from "./Navlinks";
 
 const Navbar = () => {
-  const { isSidebarOpen, toggleSidebar } = useGlobalContext();
+  const { toggleSidebar } = useGlobalContext();
 
   return (
     <nav>
