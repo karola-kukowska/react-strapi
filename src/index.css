@@ -438,7 +438,6 @@ Nav Links
     display: flex;
     justify-content: center;
     align-self: stretch;
-    gap: 2rem;
   }
   .nav-center {
     align-self: stretch;
@@ -463,8 +462,6 @@ Submenu
 =============== 
 */
 
-.submenu-container {
-}
 .submenu {
   display: none;
 }
